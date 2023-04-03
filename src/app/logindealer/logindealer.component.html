@@ -1,0 +1,29 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+<div class="bg-img">
+    <div class="content1">
+        <header style="font-size: 30px;"><a routerLink="/" style="color: white;"><i class="fas fa-arrow-left"></i></a> Dealer Login Form</header>
+        <form method="post" (submit)="checkCredentials($event)" >
+            <div class="field">
+                <span class="fa fa-user"></span>
+                <input type="email" required name="email" placeholder="Email" (change)="checkEmail($event)">
+            </div>
+            <p style="color: red;" *ngIf="showEmailError">* Please enter the correct email</p>
+            <div class="field space">
+                <span class="fa fa-lock"></span>
+                <input type="password" class="pass-key" name="password" (change)="checkPass($event)" placeholder="Password" required>
+                <span class="show">SHOW</span>
+            </div>
+            <p style="color: red;" *ngIf="showPassError">* Please enter the password</p>
+            <p style="color: red;" *ngIf="showDbError">* Email or Password is incorrect</p>
+            <div class="pass">
+                <a>Forgot Password?</a>
+            </div>
+            <div class="field">
+                <input type="submit" value="LOGIN">
+            </div>
+        </form>
+       
+    </div>
+</div>

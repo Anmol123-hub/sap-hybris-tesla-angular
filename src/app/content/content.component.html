@@ -1,0 +1,247 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+<div class="container">
+    <h1 style="margin-top: 30px; font-weight: bold;">Schedule a Demo Drive</h1>
+    <p>Demo Drive a Tesla at a store near you. Drivers must have a valid India driver's license and be 18 years of age
+        or older.
+    </p>
+    <div class="row ">
+        <div class="col-12">
+            <img [src]="currentImage" id="image">
+        </div>
+
+    </div>
+    
+    <div class="row">
+        <div class="col-12 col-md-3 col-xl-3 col-xxl-3">
+
+            <button class="custom-btn btn-16" (click)="ChangeThePicture($event,0)">Model S</button>
+        </div>
+        <div class="col-12 col-md-3 col-xl-3 col-xxl-3">
+
+            <button class="custom-btn btn-16" (click)="ChangeThePicture($event,1)">Model 3</button>
+        </div>
+        <div class="col-12 col-md-3 col-xl-3 col-xxl-3">
+
+            <button class="custom-btn btn-16" (click)="ChangeThePicture($event,2)">Model X</button>
+        </div>
+        <div class="col-12 col-md-3 col-xl-3 col-xxl-3">
+
+            <button class="custom-btn btn-16" (click)="ChangeThePicture($event,3)">Model Y</button>
+        </div>
+    </div>
+    <br><br><br><br><br><br>
+
+    <div>
+        <h2 style="font-weight: bold;">Contact Information</h2>
+        <br><br><br><br>
+        <form action="#" method="post" (submit)="formHandle($event)">
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="firstname" class="form-label label-bold">* First Name :</label>
+                        <input type="text" name="first" (change)="checkFirstname($event)" class="form-control"
+                            id="firstname" aria-describedby="textHelp">
+                        <p style="color: red;" *ngIf="showFirstnameError">* Please enter the correct first name</p>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="lastname" class="form-label label-bold">* Last Name :</label>
+                        <input type="text" name="last" class="form-control" (change)="checkLastname($event)"
+                            id="lastname" aria-describedby="emailHelp">
+                        <p style="color: red;" *ngIf="showLastnameError">* Please enter the correct last name</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="phone" class="form-label label-bold">* Contact Number :</label>
+                        <br>
+                        <div style="display: flex;">
+                            <select>
+                                <option>+91</option>
+                            </select>
+                            &nbsp;&nbsp;
+                            <input autocomplete="off" type="tel" id="phone" name="contact" pattern="/^\d{10}$/"
+                                class="form-control" (input)="checkTheNumber($event)">
+                        </div>
+                        <p style="color: red;" *ngIf="showContanctError">* Please enter the correct format number</p>
+
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="email" class="form-label label-bold">* Email :</label>
+                        <input (change)="checkEmail($event)" name="email" type="email" class="form-control" id="email"
+                            aria-describedby="emailHelp">
+                        <p style="color: red;" *ngIf="showEmailError">* Please enter the correct email address</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="zip" class="form-label label-bold">* Zip Code :</label>
+
+                        <input type="number" min="0" id="zip" class="form-control" name="zip" (change)="getAdd($event)">
+                        <p style="color: red;" *ngIf="showPincodeError">* Please enter the correct format zipcode</p>
+
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="city" class="form-label label-bold">* City :</label>
+                        <input type="text" matInput class="form-control" name="city" id="city" [(ngModel)]="district"
+                            disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="state" class="form-label label-bold">* State :</label>
+
+                        <input type="text" matInput class="form-control" name="state" id="state" [(ngModel)]="state"
+                            disabled>
+
+
+                        <!-- Modal -->
+
+                        <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel1">Oh ho!</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h5> We are currently not operating in your area</h5>
+                                        <h5>We are operating in these cities- </h5>
+                                        <ol>
+                                            <li>Mumbai </li>
+                                            <li> Delhi</li>
+                                            <li> Kolkata</li>
+                                            <li> Chennai</li>
+                                            <li> Bangalore</li>
+                                            <li> Hyderabad</li>
+                                            <li> Ahmedabad</li>
+                                            <li> Pune</li>
+                                            <li> Surat</li>
+                                        </ol>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="row">
+                    <div *ngIf="showDealerInfo" class="col-12 col-md-8 col-lg-8 col-xxl-8">
+                        <label for="dealer" class="form-label label-bold">* Select the Dealer :</label>
+
+                        <!-- <select id="dealer" class="form-select" size="5" aria-label="size 3 select example">
+                            <option *ngFor="let option of dealer" [value]="option">{{ option }}</option> 
+                          </select> -->
+                          <div class="table-responsive">
+                        <table *ngIf="showDealerInfo" class="table table-striped table-hover ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">S.No.</th>
+                                    <th scope="col">Dealer Name</th>
+                                    <th scope="col">Dealer Address</th>
+                                    <th scope="col">Choose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let option of dealer; let indexOfelement=index;">
+                                    <th>{{ indexOfelement+1 }}</th>
+                                    <td>{{ option.name }}</td>
+                                    <td>{{ option.address }}</td>
+                                    <td><input type="radio" name="dealerTable" (change)="saveDealerId(option.id)"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div *ngIf="checkDealerSelect" class="mb-3">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="date" class="form-label label-bold">* Select date :</label>
+                        <input type="date" id="date" class="form-control" name="date" (change)="checkDate($event)"
+                            [min]="todayDate()">
+                        <p style="color: red;" *ngIf="showDateError">* Please select the date</p>
+
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-xxl-4">
+                        <label for="time" class="form-label label-bold">* Select time :</label>
+                        <input type="time" id="time" class="form-control" name="time" (change)="checkTime($event)"
+                            [min]="currentTime()">
+                        <p style="color: red;" *ngIf="showTimeError">* Please please select time</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="exampleModal3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel1">Congratulations</h1>
+
+                        </div>
+                        <div class="modal-body">
+                            <img src="https://i.pinimg.com/originals/90/13/f7/9013f7b5eb6db0f41f4fd51d989491e7.gif" alt="">
+                            <pre>Our dealer will contact you :)</pre>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="pageReload()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="modal fade" id="exampleModal2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel1">Confirmation</h1>
+
+                        </div>
+                        <div class="modal-body">
+                            <h4>Review your booking</h4>
+                            <hr>
+                            <pre>Car Model     - <b>{{ currentCar }}</b></pre>
+                            <pre>Customer Name - <b>{{ data.first +" "+  data.last }}</b></pre>
+                            <pre>Contact       - <b>{{ data.contact }}</b></pre>
+                            <pre>Email         - <b>{{ data.email }}</b></pre>
+                            <pre>Pincode       - <b>{{ data.pincode }}</b></pre>
+                            <pre>City          - <b>{{ district }}</b></pre>
+                            <pre>State         - <b>{{ state }}</b></pre>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                (click)="saveDb()">YES</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button *ngIf="!btnDisabled" type="submit" class="mainbutton">Submit</button>
+            <p *ngIf="btnDisabled" style="color: red;">* We are currently not operating in your area</p>
+        </form>
+        <br>
+        <br>
+
+    </div>
+
+</div>

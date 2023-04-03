@@ -1,0 +1,77 @@
+.social-circle i
+{
+	color: #000;
+	transition: all 0.8s;
+}
+.social-circle li a
+{
+	border-radius: 50%;
+	display: inline-block;
+	font-size: 20px;
+	height: 50px;
+	margin: 0 auto 0 auto;
+	position: relative;
+	text-align: center;
+	width: 50px;
+}
+.social-circle li a:hover i, .triggeredHover
+{
+	transform: rotate(360deg);
+	transition: all 0.2s;
+}
+.social-circle li i
+{
+	line-height: 50px;
+	margin: 0;
+	text-align: center;
+}
+.social-network a.icoFacebook:hover
+{
+	background-color: #3B5998;
+}
+.social-network a.icoFacebook:hover i, .social-network a.icoTwitter:hover i, .social-network a.icoGoogle:hover i
+{
+	color: #fff;
+}
+.social-network a.icoGoogle:hover
+{
+	background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+.social-network a.icoTwitter:hover
+{
+	background-color: #33ccff;
+}
+a.socialIcon:hover, .socialHoverClass
+{
+	color: #44BCDD;
+}
+footer
+{
+	background-color: #f8f9fa;
+	max-width: 100%;
+	padding: 40px;
+}
+ul
+{
+	color: purple;
+	font-weight: bold;
+	list-style-type: none;
+}
+ul li
+{
+	cursor: pointer;
+	margin-left: -1.8em;
+	padding-bottom: 10px;
+}
+ul.social-network
+{
+	display: inline;
+	list-style: none;
+	margin-left: 0 !important;
+	padding: 0;
+}
+ul.social-network li
+{
+	display: inline;
+	margin: 0 5px;
+}
