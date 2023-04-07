@@ -52,13 +52,28 @@ mongoose.connect(string_mongo).then((res) => console.log("Connected"))
 
 app.get("/getdealerdetails", (req, res) => {
     Dealername.find().then((db) => res.send(db))
+})
+
+app.get("/getallcustomer", (req, res) => {
+    Customerrequest.find().then((db) => res.send(db))
 
 })
+
 app.post("/getcustomerrequests", (req, res) => {
     let a = req.body
     Customerrequest.find({ dealerId: a.id, request: "pending" }).then((db) => res.send(db))
 
 })
+app.post("/getaccepetdrequets", (req, res) => {
+    let a = req.body
+    Customerrequest.find({ dealerId: a.id, request: "accepted" }).then((db) => res.send(db))
+})
+app.post("/getrejectrequets", (req, res) => {
+    let a = req.body
+    Customerrequest.find({ dealerId: a.id, request: "reject" }).then((db) => res.send(db))
+
+})
+
 
 app.post("/customerrequest", (req, res) => {
     let a = req.body
@@ -110,14 +125,30 @@ app.post("/getdealerdeatils", (req, res) => {
         }
     })
 })
+
 app.post("/updatestatus", (req, res) => {
     let a = req.body
-    console.log(a);
-    Customerrequest.findByIdAndUpdate({custId:a.custId}).then((db)=>{
-        db.request = "accepted"
-        db.save()
-        res.send("updated")
-    })
+    if (a.status === "accept") {
+        Customerrequest.updateOne({ custId: { $eq: a.custId } }, { request: "accepted" }).then((db) => {
+            if (Object.keys(db).length == 0) {
+                res.send("not found")
+            }
+            else {
+                res.send("Updated")
+            }
+        })
+    }
+    else{
+        Customerrequest.updateOne({ custId: { $eq: a.custId } }, { request: "reject" }).then((db) => {
+            if (Object.keys(db).length == 0) {
+                res.send("not found")
+            }
+            else {
+                res.send("Updated")
+            }
+        })
+    }
+
 })
 
 
