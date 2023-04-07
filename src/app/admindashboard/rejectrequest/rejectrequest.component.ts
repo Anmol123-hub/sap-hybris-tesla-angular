@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Dealernames } from '../content/interface/dealername';
-import { CustomerDetails } from './interface/customerData';
-import { NavigationExtras, Router } from '@angular/router';
+import { Component,OnInit } from '@angular/core';
+import { Dealernames } from 'src/app/content/interface/dealername';
+import { CustomerDetails } from '../interface/customerData';
 
 @Component({
-  selector: 'app-admindashboard',
-  templateUrl: './admindashboard.component.html',
-  styleUrls: ['./admindashboard.component.css']
+  selector: 'app-rejectrequest',
+  templateUrl: './rejectrequest.component.html',
+  styleUrls: ['./rejectrequest.component.css']
 })
-export class AdmindashboardComponent implements OnInit {
+export class RejectrequestComponent implements OnInit {
   data = {
     Email: ""
   }
@@ -29,10 +28,7 @@ export class AdmindashboardComponent implements OnInit {
     email:'',
     request:''
   }]
-  customer1:CustomerDetails[] =[{
-    custId:0,
-  }]
-  constructor(private router: Router) {
+  constructor() {
   }
   async ngOnInit() {
     const email = window.localStorage.getItem("email")
@@ -61,7 +57,9 @@ export class AdmindashboardComponent implements OnInit {
       const data1={
         id:this.dealerDetails[0].dealerId
       }
-      await fetch("/getcustomerrequests", {
+
+      
+      await fetch("/getrejectrequets", {
         method: "POST",
         cache: "no-cache",
         headers: { "Content-Type": "application/json" },
@@ -72,36 +70,22 @@ export class AdmindashboardComponent implements OnInit {
         }
         return response.text();
       }).then((text) => {
-        this.customer = JSON.parse(text)
+        this.customer= JSON.parse(text) 
         if(text === "[]"){
           this.checkTheData=false
-        }
-        
-      })
-      await fetch("/getaccepetdrequets", {
-        method: "POST",
-        cache: "no-cache",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data1)
-      }).then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
-        }
-        return response.text();
-      }).then((text) => {
-        this.customer1 = JSON.parse(text)     
+        }    
       })
     }
   }
+  change(url:any){
+    window.location=url
+  }
   logout() {
-  //   const extras: NavigationExtras = { skipLocationChange: true };
-  // this.router.navigateByUrl('/', extras);
     window.localStorage.removeItem("email")
     window.location = "/" as any
   }
   acceptRequest(id:any){
     const data = {
-      status:"accept",
       custId:id
     }
     fetch("/updatestatus",{
@@ -119,28 +103,5 @@ export class AdmindashboardComponent implements OnInit {
       
     })
   }
-  change(url:any){
-    window.location=url
-  }
-  rejectRequest(id:any){
-    const data = {
-      status:"reject",
-      custId:id
-    }
-    fetch("/updatestatus",{
-      method:"post",
-      cache:"no-cache",
-      headers:{ "Content-Type": "application/json" },
-      body:JSON.stringify(data)
-    }).then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error: ${response.status}`);
-      }
-      return response.text();
-    }).then((text)=>{
-      window.location = "/admin" as any
-      
-    })
-  }
-
 }
+

@@ -4,6 +4,7 @@ export interface CustomerDetails{
     lastname?:String,
     contact?:Number,
     email?:String,
+    dealerId?:Number,
     date?:String,
     time?:String,
     pincode?:Number,

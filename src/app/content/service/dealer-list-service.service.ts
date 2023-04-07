@@ -10,6 +10,6 @@ export class DealerListServiceService {
 
   constructor(private http:HttpClient) { }
   getDealers():Observable<Dealernames[]>{
-    return this.http.get("http://localhost:2525/getdealerdetails") as any
+    return this.http.get("/getdealerdetails") as any
   }
 }

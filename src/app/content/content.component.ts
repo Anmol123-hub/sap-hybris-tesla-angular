@@ -49,7 +49,7 @@ export class ContentComponent implements OnInit {
   showPincodeError: Boolean = false
   showContanctError: Boolean = false
   pinCode: string = '';
-  checkTenDigit = /^\d{10}$/;
+  checkTenDigit = /^[6-9]\d{9}$/;
   state = '';
   p: number = 0
   btnDisabled: boolean = false
@@ -274,7 +274,7 @@ export class ContentComponent implements OnInit {
   }
   
   async saveDb(){
-    await fetch("http://localhost:2525/customerrequest",{
+    await fetch("/customerrequest",{
       method:"POST",
       cache: "no-cache",
       headers: { "Content-Type": "application/json" },

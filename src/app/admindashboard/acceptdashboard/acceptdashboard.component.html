@@ -1,13 +1,9 @@
-<link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
+
+<link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">    
 <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
     <div class="app-header header-shadow">
         <div class="app-header__logo">
-            <svg class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon" style="width: 150px;" viewBox="0 0 342 35"
-                xmlns="http://www.w3.org/2000/svg"><a routerLink="/">
-                    <path
-                        d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zM308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7z"
-                        fill="currentColor"></path>
-                </a></svg>
+            <svg class="tds-icon tds-icon-logo-wordmark tds-site-logo-icon" style="width: 150px;" viewBox="0 0 342 35" xmlns="http://www.w3.org/2000/svg"><a routerLink="/"><path d="M0 .1a9.7 9.7 0 0 0 7 7h11l.5.1v27.6h6.8V7.3L26 7h11a9.8 9.8 0 0 0 7-7H0zm238.6 0h-6.8v34.8H263a9.7 9.7 0 0 0 6-6.8h-30.3V0zm-52.3 6.8c3.6-1 6.6-3.8 7.4-6.9l-38.1.1v20.6h31.1v7.2h-24.4a13.6 13.6 0 0 0-8.7 7h39.9v-21h-31.2v-7h24zm116.2 28h6.7v-14h24.6v14h6.7v-21h-38zM85.3 7h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 13.8h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zm0 14.1h26a9.6 9.6 0 0 0 7.1-7H78.3a9.6 9.6 0 0 0 7 7zM308.5 7h26a9.6 9.6 0 0 0 7-7h-40a9.6 9.6 0 0 0 7 7z" fill="currentColor"></path></a></svg>
             <div class="header__pane ml-auto">
                 <div>
                     <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -39,13 +35,13 @@
         </div>
         <div class="app-header__content">
             <div class="app-header-left">
-
+                
             </div>
             <div class="app-header-right">
                 <div class="header-btn-lg pr-0">
                     <div class="widget-content p-0">
                         <div class="widget-content-wrapper">
-
+                            
                             <div class="widget-content-left">
                                 <div class="btn-group">
                                     <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -55,8 +51,7 @@
                                     </a>
                                     <div tabindex="-1" role="menu" aria-hidden="true"
                                         class="dropdown-menu dropdown-menu-right">
-                                        <button type="button" tabindex="0" class="dropdown-item"
-                                            (click)="logout()">Logout</button>
+                                        <button type="button" tabindex="0" class="dropdown-item" (click)="logout()">Logout</button>
                                         <!-- <button type="button" tabindex="0" class="dropdown-item">Settings</button>
                                         <h6 tabindex="-1" class="dropdown-header">Header</h6>
                                         <button type="button" tabindex="0" class="dropdown-item">Actions</button>
@@ -73,14 +68,14 @@
                                     Tesla admin
                                 </div>
                             </div>
-
+                           
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+ 
     <div class="app-main">
         <div class="app-sidebar sidebar-shadow">
             <div class="app-header__logo">
@@ -142,7 +137,7 @@
                                 </i>ChartJS
                             </a>
                         </li> -->
-
+                        
                     </ul>
                 </div>
             </div>
@@ -162,68 +157,26 @@
                             </div>
                         </div>
                         <div class="page-title-actions">
-
-
+                            
+                            
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-xl-6">
-                        <div class="card mb-3 widget-content bg-midnight-bloom">
-                            <div class="widget-content-wrapper text-white">
-                                <div class="widget-content-left">
-                                    <div class="widget-heading">Total pending requests</div>
-
-                                </div>
-                                <div class="widget-content-right">
-                                    <div class="widget-numbers text-white"><span>{{ customer.length }}</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="col-md-6 col-xl-4">
-                        <div class="card mb-3 widget-content bg-arielle-smile">
-                            <div class="widget-content-wrapper text-white">
-                                <div class="widget-content-left">
-                                    <div class="widget-heading">Clients</div>
-                                    <div class="widget-subheading">Total Clients Profit</div>
-                                </div>
-                                <div class="widget-content-right">
-                                    <div class="widget-numbers text-white"><span>$ 568</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                    <div class="col-md-6 col-xl-6">
-                        <div class="card mb-3 widget-content bg-grow-early">
-                            <div class="widget-content-wrapper text-white">
-                                <div class="widget-content-left">
-                                    <div class="widget-heading">Total Approved requestes</div>
-
-                                </div>
-                                <div class="widget-content-right">
-                                    <div class="widget-numbers text-white"><span>{{ customer1.length }}</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+               
+                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="main-card mb-3 card">
                             <div class="card-header">Requests Section
-
+                               
                             </div>
-
                             <div *ngIf="checkTheData" class="table-responsive">
                                 <table class="align-middle mb-0 table table-borderless table-striped table-hover">
                                     <thead>
                                         <tr>
                                             <th class="text-center">S.no.</th>
                                             <th>Name</th>
-
+                                           
                                             <th class="text-center">Contact</th>
                                             <th class="text-center">Email</th>
                                             <th class="text-center">Date</th>
@@ -231,7 +184,7 @@
                                             <th class="text-center">Pincode</th>
                                             <th class="text-center">Car Model </th>
                                             <th class="text-center">Status</th>
-                                            <th class="text-center">Actions</th>
+                                           
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -247,8 +200,7 @@
                                                             </div>
                                                         </div> -->
                                                         <div class="widget-content-left flex2">
-                                                            <div class="widget-heading">{{ option.firstname + " " +
-                                                                option.lastname }}</div>
+                                                            <div class="widget-heading">{{ option.firstname + " " + option.lastname }}</div>
                                                             <!-- <div class="widget-subheading opacity-7">Web Developer</div> -->
                                                         </div>
                                                     </div>
@@ -261,25 +213,9 @@
                                             <td class="text-center">{{ option.pincode }}</td>
                                             <td class="text-center">{{ option.carModel }}</td>
                                             <td class="text-center">
-                                                <div class="badge badge-warning">Pending</div>
+                                                <div class="badge badge-success">Accepted</div>
                                             </td>
-                                            <td class="text-center">
-                                                <div class="btn-group">
-                                                    <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                                        class="p-0 btn">
-                                                        <img width="42" class="rounded-circle" src="" alt="">
-                                                        <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                                                    </a>
-                                                    <div tabindex="-1" role="menu" aria-hidden="true"
-                                                        class="dropdown-menu dropdown-menu-right">
-                                                        <button type="button" tabindex="0" class="dropdown-item"
-                                                            (click)="acceptRequest(option.custId)">Accept</button>
-                                                        <button type="button" tabindex="0" class="dropdown-item"
-                                                            (click)="rejectRequest(option.custId)">Reject</button>
-
-                                                    </div>
-                                                </div>
-                                            </td>
+                                           
                                         </tr>
                                         <!-- <tr>
                                             <td class="text-center text-muted">#347</td>
@@ -370,10 +306,11 @@
                         </div>
                     </div>
                 </div>
-
+                
             </div>
-
+           
         </div>
-
+        
     </div>
 </div>
+
